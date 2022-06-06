@@ -25,6 +25,6 @@ public class Esel  extends  Musikant{
 	@Override
 	public String toString() {
 		return "Esel " + trittkraft
-				+": " ;
+				+": " + super.toString();
 	}
 }

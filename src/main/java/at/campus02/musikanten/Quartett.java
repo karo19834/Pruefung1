@@ -11,28 +11,31 @@ public class Quartett {
 	public void add(Musikant m) {
 		musikanten.add(m);
 	}
+
+
 	public boolean istQuartett() {
-		for (Musikant m: musikanten) {
-			if (musikanten.size()==4){
-				return true;
-			}
-		}
-		return false;
+		return musikanten.size()==4;
 	}
 	
 	public int gemeinsamRaeuberVerscheucht() {
-		int help=0;
-		for (Musikant m:musikanten) {
-			help += m.verscheucheRaeuber();
+		Iterator<Musikant> it = musikanten.iterator();
+		int temp=0;
+		while (it.hasNext()){
+			temp += it.next().verscheucheRaeuber();
 		}
-		return help;
+		return temp;
 	}
+
+
 	public double durchschnittlicheLautstaerke() {
-		double help=0;
-		for (Musikant m: musikanten) {
-			help += m.spieleMusik() ;
+		double temp=0;
+		if (musikanten.isEmpty()){
+			return 0;
 		}
-		return help/ musikanten.size();
+		for (Musikant m: musikanten) {
+			temp += m.spieleMusik() ;
+		}
+		return temp/ musikanten.size();
 	}
 	
 	public ArrayList<Musikant> getMusikantenInLautstaerkeBereich(double von, double bis) {
@@ -67,9 +70,9 @@ public class Quartett {
 	}
 
 	public void printLautStaerkeAbsteigend() {
-		musikanten.sort(new LautstaerkeComparator().reversed());
+		musikanten.sort(new LautstaerkeComparator());
 		for (Musikant m:musikanten) {
-			System.out.println(m);
+			System.out.println(m.toString());
 		}
 	}
 }

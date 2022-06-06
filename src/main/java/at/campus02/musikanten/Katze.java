@@ -10,12 +10,12 @@ public class Katze extends Musikant{
 
 	@Override
 	public int verscheucheRaeuber() {
-		if (anzahlBeine == 4){
-			return (int)Math.floor(kratzKraft);
-		}else if (anzahlBeine==3){
+		if (anzahlBeine == 3){
 			return (int)Math.floor(kratzKraft/2);
-		}else {
+		}else if (anzahlBeine<=2){
 			return 1;
+		}else {
+			return (int)Math.floor(kratzKraft);
 		}
 	}
 
@@ -30,6 +30,6 @@ public class Katze extends Musikant{
 	@Override
 	public String toString() {
 		return "Katze " + kratzKraft
-				+": " ;
+				+": "+ super.toString() ;
 	}
 }

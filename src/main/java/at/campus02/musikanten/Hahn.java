@@ -12,18 +12,20 @@ public class Hahn extends Musikant{
 	public int verscheucheRaeuber() {
 		if (flugWeite<2){
 			return (int) Math.floor(instrument.getLautstaerke());
-		}else if (flugWeite == 2){
-			return 6;
-		}else if (flugWeite==3){
-			return 5;
-		}else if (flugWeite==4){
-			return 4;
-		}else if (flugWeite==5){
-			return 3;
-		}else if (flugWeite==6){
-			return 2;
-		}else {
-			return 1;
+		}
+		switch (flugWeite){
+			case 2:
+				return 6;
+			case 3:
+				return 5;
+			case 4:
+				return 4;
+			case 5:
+				return 3;
+			case 6:
+				return 2;
+			default:
+				return 1;
 		}
 	}
 
@@ -38,6 +40,6 @@ public class Hahn extends Musikant{
 	@Override
 	public String toString() {
 		return "Hahn " + flugWeite
-				+": " ;
+				+": " + super.toString();
 	}
 }

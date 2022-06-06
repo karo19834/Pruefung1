@@ -27,6 +27,6 @@ public class Hund extends Musikant{
 	@Override
 	public String toString() {
 		return "Hund " + bellLautstaerke
-				+": " ;
+				+": " + super.toString();
 	}
 }
